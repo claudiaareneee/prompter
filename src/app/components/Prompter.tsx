@@ -6,7 +6,7 @@ import { genrePrompts, perspectivePrompts, eraPrompts, tonePrompts, settingPromp
 
 import "./Prompter.css";
 import { IconButton, Text, ThemeProvider } from '@itwin/itwinui-react';
-import { SvgCopy, SvgRefresh } from '@itwin/itwinui-icons-react';
+import { SvgCheckmark, SvgCopy, SvgRefresh } from '@itwin/itwinui-icons-react';
 
 export const Prompter = () => {
   const [genre, setGenre] = useState<string>();
@@ -15,6 +15,7 @@ export const Prompter = () => {
   const [tone, setTone] = useState<string>();
   const [setting, setSetting] = useState<string>();
   const [pov, setPov] = useState<string>();
+  const [copied, setCopied] = useState<boolean>(false);
 
   const getPrompt = useCallback((prompts: string[]) => {
     return prompts[Math.floor(Math.random() * (prompts.length))];
@@ -61,6 +62,9 @@ export const Prompter = () => {
       const htmlItem = new ClipboardItem({ [htmlBlob.type]: htmlBlob, [textBlob.type]: textBlob });
 
       navigator.clipboard.write([htmlItem]);
+
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     }
   }
 
@@ -76,7 +80,7 @@ export const Prompter = () => {
         <Prompt title="Pov" prompt={pov ?? ""} onClick={() => { setPov(getPrompt(povPrompts)) }} />
       </div>
       <div className='buttons'>
-        <IconButton label="Copy" onClick={copyToClipboard}><SvgCopy /></IconButton>
+        <IconButton label="Copy" onClick={copyToClipboard}>{copied ? <SvgCheckmark /> : <SvgCopy />}</IconButton>
         <IconButton label="Generate" onClick={generatePrompts}><SvgRefresh /></IconButton>
       </div>
     </div>
