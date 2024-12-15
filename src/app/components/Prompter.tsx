@@ -4,6 +4,8 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { Prompt } from './Prompt';
 import { genrePrompts, perspectivePrompts, eraPrompts, tonePrompts, settingPrompts, povPrompts } from '../helpers/constants';
 
+import "./Prompter.css";
+
 export const Prompter = () => {
   const [genre, setGenre] = useState<string>();
   const [perspective, setPerspective] = useState<string>();
@@ -25,14 +27,21 @@ export const Prompter = () => {
     setPov(getPrompt(povPrompts));
   }, [getPrompt]);
 
-  return <div>
+  return <div className='prompter'>
     Writing prompt
-    <Prompt prompt={genre ?? ""} onClick={() => { }} />
-    <Prompt prompt={perspective ?? ""} onClick={() => { }} />
-    <Prompt prompt={era ?? ""} onClick={() => { }} />
-    <Prompt prompt={tone ?? ""} onClick={() => { }} />
-    <Prompt prompt={setting ?? ""} onClick={() => { }} />
-    <Prompt prompt={pov ?? ""} onClick={() => { }} />
+    <Prompt prompt={genre ?? ""} onClick={() => { setGenre(getPrompt(genrePrompts)) }} />
+    <Prompt prompt={perspective ?? ""} onClick={() => { setPerspective(getPrompt(perspectivePrompts)) }} />
+    <Prompt prompt={era ?? ""} onClick={() => { setEra(getPrompt(eraPrompts)) }} />
+    <Prompt prompt={tone ?? ""} onClick={() => { setTone(getPrompt(tonePrompts)) }} />
+    <Prompt prompt={setting ?? ""} onClick={() => { setSetting(getPrompt(settingPrompts)) }} />
+    <Prompt prompt={pov ?? ""} onClick={() => { setPov(getPrompt(povPrompts)) }} />
   </div>
 }
+
+// color={"#8B1E3F"}
+// color={"#3C153B"}
+// color={"#89bd9e"}
+// color={"#f0c987"}
+// color={"#db4c40"}
+// color={"#8ea8c3"}
 
