@@ -5,7 +5,7 @@ import { Prompt } from './Prompt';
 import { genrePrompts, perspectivePrompts, eraPrompts, tonePrompts, settingPrompts, povPrompts } from '../helpers/constants';
 
 import "./Prompter.css";
-import { IconButton, ThemeProvider } from '@itwin/itwinui-react';
+import { IconButton, Text, ThemeProvider } from '@itwin/itwinui-react';
 import { SvgCopy, SvgRefresh, SvgText } from '@itwin/itwinui-icons-react';
 
 export const Prompter = () => {
@@ -66,7 +66,7 @@ export const Prompter = () => {
 
   return <ThemeProvider theme='os' themeOptions={{ applyBackground: false }} className="client-app">
     <div className='prompter-page'>
-      {/* <Text></Text> */}
+      <Text className="header">Writing Prompts</Text>
       <div className='prompter'>
         <Prompt title="Genre" prompt={genre ?? ""} onClick={() => { setGenre(getPrompt(genrePrompts)) }} />
         <Prompt title="Perspective" prompt={perspective ?? ""} onClick={() => { setPerspective(getPrompt(perspectivePrompts)) }} />
