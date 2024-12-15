@@ -7,7 +7,6 @@ import { genrePrompts, perspectivePrompts, eraPrompts, tonePrompts, settingPromp
 import "./Prompter.css";
 import { IconButton, ThemeProvider } from '@itwin/itwinui-react';
 import { SvgCopy, SvgRefresh, SvgText } from '@itwin/itwinui-icons-react';
-import { stringify } from 'querystring';
 
 export const Prompter = () => {
   const [genre, setGenre] = useState<string>();
@@ -53,17 +52,12 @@ export const Prompter = () => {
 
     if (navigator.clipboard) {
       const htmlBlob = new Blob([div.getHTML()], { type: 'text/html' });
-      const htmlItem = new ClipboardItem({ [htmlBlob.type]: htmlBlob });
+      const text = data.map(category => `${category[0]}: ${category[1]}`).join("\n");
+      const textBlob = new Blob([text], { type: 'text/plain' });
+      const htmlItem = new ClipboardItem({ [htmlBlob.type]: htmlBlob, [textBlob.type]: textBlob });
 
       navigator.clipboard.write([htmlItem]);
     }
-  }
-
-  const copyAsString = () => {
-    const text = data.map(category => `${category[0]}: ${category[1]}`).join("\n");
-
-    if (navigator.clipboard)
-      navigator.clipboard.writeText(text);
   }
 
   return <ThemeProvider theme='os' themeOptions={{ applyBackground: false }} className="client-app">
@@ -78,7 +72,6 @@ export const Prompter = () => {
       </div>
       <div className='buttons'>
         <IconButton label="Copy" onClick={copyToClipboard}><SvgCopy /></IconButton>
-        <IconButton label="Copy Plain Text" onClick={copyAsString}><SvgText /></IconButton>
         <IconButton label="Generate"><SvgRefresh /></IconButton>
       </div>
     </div>
