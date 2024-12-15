@@ -5,7 +5,8 @@ import { Prompt } from './Prompt';
 import { genrePrompts, perspectivePrompts, eraPrompts, tonePrompts, settingPrompts, povPrompts } from '../helpers/constants';
 
 import "./Prompter.css";
-import { Text } from '@itwin/itwinui-react';
+import { IconButton, ThemeProvider } from '@itwin/itwinui-react';
+import { SvgCopy, SvgRefresh } from '@itwin/itwinui-icons-react';
 
 export const Prompter = () => {
   const [genre, setGenre] = useState<string>();
@@ -28,21 +29,21 @@ export const Prompter = () => {
     setPov(getPrompt(povPrompts));
   }, [getPrompt]);
 
-  return <div className='prompter'>
-    <Text>Writing prompt</Text>
-    <Prompt prompt={genre ?? ""} onClick={() => { setGenre(getPrompt(genrePrompts)) }} />
-    <Prompt prompt={perspective ?? ""} onClick={() => { setPerspective(getPrompt(perspectivePrompts)) }} />
-    <Prompt prompt={era ?? ""} onClick={() => { setEra(getPrompt(eraPrompts)) }} />
-    <Prompt prompt={tone ?? ""} onClick={() => { setTone(getPrompt(tonePrompts)) }} />
-    <Prompt prompt={setting ?? ""} onClick={() => { setSetting(getPrompt(settingPrompts)) }} />
-    <Prompt prompt={pov ?? ""} onClick={() => { setPov(getPrompt(povPrompts)) }} />
-  </div>
+  return <ThemeProvider theme='os' themeOptions={{ applyBackground: false }} className="client-app">
+    <div className='prompter-page'>
+      <div className='prompter'>
+        <Prompt title="Genre" prompt={genre ?? ""} onClick={() => { setGenre(getPrompt(genrePrompts)) }} />
+        <Prompt title="Perspective" prompt={perspective ?? ""} onClick={() => { setPerspective(getPrompt(perspectivePrompts)) }} />
+        <Prompt title="Era" prompt={era ?? ""} onClick={() => { setEra(getPrompt(eraPrompts)) }} />
+        <Prompt title="Tone" prompt={tone ?? ""} onClick={() => { setTone(getPrompt(tonePrompts)) }} />
+        <Prompt title="Setting" prompt={setting ?? ""} onClick={() => { setSetting(getPrompt(settingPrompts)) }} />
+        <Prompt title="Pov" prompt={pov ?? ""} onClick={() => { setPov(getPrompt(povPrompts)) }} />
+      </div>
+      <div className='buttons'>
+        <IconButton label="Copy"><SvgCopy /></IconButton>
+        <IconButton label="Generate"><SvgRefresh /></IconButton>
+      </div>
+    </div>
+  </ThemeProvider>
 }
-
-// color={"#8B1E3F"}
-// color={"#3C153B"}
-// color={"#89bd9e"}
-// color={"#f0c987"}
-// color={"#db4c40"}
-// color={"#8ea8c3"}
 

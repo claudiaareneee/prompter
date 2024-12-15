@@ -8,12 +8,13 @@ import { Button, ColorValue } from '@itwin/itwinui-react';
 export interface PromptProps {
   prompt: string,
   onClick: () => void;
+  title?: string;
   color?: string
   styles?: React.CSSProperties;
 };
 
-export const Prompt = ({ prompt, color, styles, onClick }: PromptProps) => {
-  const [backgroundColor, setBackgroundColor] = useState<string>(color ?? "000000");
+export const Prompt = ({ prompt, color, styles, title, onClick }: PromptProps) => {
+  const [background, setBackground] = useState<string>(color ?? "000000");
   const [textColor, setTextColor] = useState<string>("FFFFFF");
 
   const getRandomColor = useCallback(() => {
@@ -35,7 +36,7 @@ export const Prompt = ({ prompt, color, styles, onClick }: PromptProps) => {
     // const isDark = bg.r < 128 && bg.b < 128 && bg.g < 128;
     const newText = isDark ? "#FFFFFF" : "#000000";
 
-    setBackgroundColor(newBackground);
+    setBackground(newBackground);
     setTextColor(newText);
   }, [color, getRandomColor]);
 
@@ -46,5 +47,5 @@ export const Prompt = ({ prompt, color, styles, onClick }: PromptProps) => {
     setColors();
   }, [onClick, setColors]);
 
-  return <Button onClick={handleClick} className='prompt' style={{ backgroundColor, color: textColor, ...styles }}>{prompt} {backgroundColor}</Button>
+  return <Button onClick={handleClick} className='prompt' style={{ background, color: textColor, ...styles }}><b>{title}</b>: {prompt}</Button>
 }

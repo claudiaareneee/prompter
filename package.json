@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@itwin/itwinui-icons-react": "^2.9.0",
     "@itwin/itwinui-react": "^3.16.0",
     "next": "15.1.0",
     "react": "^19.0.0",

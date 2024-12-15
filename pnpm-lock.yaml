@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@itwin/itwinui-icons-react':
+        specifier: ^2.9.0
+        version: 2.9.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@itwin/itwinui-react':
         specifier: ^3.16.0
         version: 3.16.0(@types/react@19.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -257,6 +260,12 @@ packages:
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha1-s3Znt7wYHBaHgiWbq0JHT79StVA=}
     engines: {node: '>=12'}
+
+  '@itwin/itwinui-icons-react@2.9.0':
+    resolution: {integrity: sha1-YKsJPK0jQEcKinLLTnEAIWfRXnY=}
+    peerDependencies:
+      react: '>=16.8.6'
+      react-dom: '>=16.8.6'
 
   '@itwin/itwinui-illustrations-react@2.1.0':
     resolution: {integrity: sha1-RN3/cdzYQxfNLLxS9BOg7+hzznk=}
@@ -1927,6 +1936,11 @@ snapshots:
       strip-ansi-cjs: strip-ansi@6.0.1
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
+
+  '@itwin/itwinui-icons-react@2.9.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
 
   '@itwin/itwinui-illustrations-react@2.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
