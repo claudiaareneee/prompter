@@ -6,7 +6,8 @@ import { genrePrompts, perspectivePrompts, eraPrompts, tonePrompts, settingPromp
 
 import "./Prompter.css";
 import { IconButton, ThemeProvider } from '@itwin/itwinui-react';
-import { SvgCopy, SvgRefresh } from '@itwin/itwinui-icons-react';
+import { SvgCopy, SvgRefresh, SvgText } from '@itwin/itwinui-icons-react';
+import { stringify } from 'querystring';
 
 export const Prompter = () => {
   const [genre, setGenre] = useState<string>();
@@ -29,6 +30,42 @@ export const Prompter = () => {
     setPov(getPrompt(povPrompts));
   }, [getPrompt]);
 
+  const data = [
+    ["Genre", genre],
+    ["Perspective", perspective],
+    ["Era", era],
+    ["Tone", tone],
+    ["Setting", setting],
+    ["Pov", pov],
+  ];
+
+  const copyToClipboard = () => {
+    const div = document.createElement("div");
+    const ul = document.createElement("ul");
+
+    data.forEach(category => {
+      const li = document.createElement("li");
+      li.innerHTML = `<b>${category[0]}:</b> ${category[1]}`;
+      ul.appendChild(li);
+    })
+
+    div.appendChild(ul);
+
+    if (navigator.clipboard) {
+      const htmlBlob = new Blob([div.getHTML()], { type: 'text/html' });
+      const htmlItem = new ClipboardItem({ [htmlBlob.type]: htmlBlob });
+
+      navigator.clipboard.write([htmlItem]);
+    }
+  }
+
+  const copyAsString = () => {
+    const text = data.map(category => `${category[0]}: ${category[1]}`).join("\n");
+
+    if (navigator.clipboard)
+      navigator.clipboard.writeText(text);
+  }
+
   return <ThemeProvider theme='os' themeOptions={{ applyBackground: false }} className="client-app">
     <div className='prompter-page'>
       <div className='prompter'>
@@ -40,10 +77,10 @@ export const Prompter = () => {
         <Prompt title="Pov" prompt={pov ?? ""} onClick={() => { setPov(getPrompt(povPrompts)) }} />
       </div>
       <div className='buttons'>
-        <IconButton label="Copy"><SvgCopy /></IconButton>
+        <IconButton label="Copy" onClick={copyToClipboard}><SvgCopy /></IconButton>
+        <IconButton label="Copy Plain Text" onClick={copyAsString}><SvgText /></IconButton>
         <IconButton label="Generate"><SvgRefresh /></IconButton>
       </div>
     </div>
   </ThemeProvider>
 }
-
