@@ -20,14 +20,18 @@ export const Prompter = () => {
     return prompts[Math.floor(Math.random() * (prompts.length))];
   }, []);
 
-  useEffect(() => {
+  const generatePrompts = useCallback(() => {
     setGenre(getPrompt(genrePrompts));
     setPerspective(getPrompt(perspectivePrompts));
     setEra(getPrompt(eraPrompts));
     setTone(getPrompt(tonePrompts));
     setSetting(getPrompt(settingPrompts));
     setPov(getPrompt(povPrompts));
-  }, [getPrompt]);
+  }, [getPrompt])
+
+  useEffect(() => {
+    generatePrompts()
+  }, [generatePrompts]);
 
   const data = [
     ["Genre", genre],
@@ -62,6 +66,7 @@ export const Prompter = () => {
 
   return <ThemeProvider theme='os' themeOptions={{ applyBackground: false }} className="client-app">
     <div className='prompter-page'>
+      {/* <Text></Text> */}
       <div className='prompter'>
         <Prompt title="Genre" prompt={genre ?? ""} onClick={() => { setGenre(getPrompt(genrePrompts)) }} />
         <Prompt title="Perspective" prompt={perspective ?? ""} onClick={() => { setPerspective(getPrompt(perspectivePrompts)) }} />
@@ -72,7 +77,7 @@ export const Prompter = () => {
       </div>
       <div className='buttons'>
         <IconButton label="Copy" onClick={copyToClipboard}><SvgCopy /></IconButton>
-        <IconButton label="Generate"><SvgRefresh /></IconButton>
+        <IconButton label="Generate" onClick={generatePrompts}><SvgRefresh /></IconButton>
       </div>
     </div>
   </ThemeProvider>
