@@ -28,9 +28,12 @@ export const Prompt = ({ prompt, color, styles, onClick }: PromptProps) => {
   const setColors = useCallback(() => { 
     const newBackground = color ? color : getRandomColor();
 
-    const background = ColorValue.fromString(newBackground).toTbgr();
-    const grey = ColorValue.fromString("#777777").toTbgr();
-    const newText = background > grey ? "#FFFFFF" : "#000000";
+    const bgValue = ColorValue.fromString(newBackground);
+    const bg = bgValue.toHsvColor();
+    const isDark = bg.s > 50 || bg.v < 50;
+
+    // const isDark = bg.r < 128 && bg.b < 128 && bg.g < 128;
+    const newText = isDark ? "#FFFFFF" : "#000000";
 
     setBackgroundColor(newBackground);
     setTextColor(newText);
@@ -43,5 +46,5 @@ export const Prompt = ({ prompt, color, styles, onClick }: PromptProps) => {
     setColors();
   }, [onClick, setColors]);
 
-  return <Button onClick={handleClick} className='prompt' style={{ backgroundColor, color: textColor, ...styles }}>{prompt}</Button>
+  return <Button onClick={handleClick} className='prompt' style={{ backgroundColor, color: textColor, ...styles }}>{prompt} {backgroundColor}</Button>
 }

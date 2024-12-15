@@ -5,6 +5,7 @@ import { Prompt } from './Prompt';
 import { genrePrompts, perspectivePrompts, eraPrompts, tonePrompts, settingPrompts, povPrompts } from '../helpers/constants';
 
 import "./Prompter.css";
+import { Text } from '@itwin/itwinui-react';
 
 export const Prompter = () => {
   const [genre, setGenre] = useState<string>();
@@ -28,7 +29,7 @@ export const Prompter = () => {
   }, [getPrompt]);
 
   return <div className='prompter'>
-    Writing prompt
+    <Text>Writing prompt</Text>
     <Prompt prompt={genre ?? ""} onClick={() => { setGenre(getPrompt(genrePrompts)) }} />
     <Prompt prompt={perspective ?? ""} onClick={() => { setPerspective(getPrompt(perspectivePrompts)) }} />
     <Prompt prompt={era ?? ""} onClick={() => { setEra(getPrompt(eraPrompts)) }} />
