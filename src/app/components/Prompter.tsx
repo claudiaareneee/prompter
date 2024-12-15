@@ -6,7 +6,7 @@ import { genrePrompts, perspectivePrompts, eraPrompts, tonePrompts, settingPromp
 
 import "./Prompter.css";
 import { IconButton, Text, ThemeProvider } from '@itwin/itwinui-react';
-import { SvgCopy, SvgRefresh, SvgText } from '@itwin/itwinui-icons-react';
+import { SvgCopy, SvgRefresh } from '@itwin/itwinui-icons-react';
 
 export const Prompter = () => {
   const [genre, setGenre] = useState<string>();
