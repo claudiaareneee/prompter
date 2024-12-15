@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@itwin/itwinui-react':
+        specifier: ^3.16.0
+        version: 3.16.0(@types/react@19.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       next:
         specifier: 15.1.0
         version: 15.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -52,6 +55,10 @@ packages:
     resolution: {integrity: sha1-e/aLIMCjUPk2kV/K4G9Y4yAHzjA=}
     engines: {node: '>=10'}
 
+  '@babel/runtime@7.26.0':
+    resolution: {integrity: sha1-hgDC9ZXyd8YIFSVkGLhTVqZRc8E=}
+    engines: {node: '>=6.9.0'}
+
   '@emnapi/runtime@1.3.1':
     resolution: {integrity: sha1-D8qlda/DH0Vf0zU0wZOBz85sb2A=}
 
@@ -88,6 +95,27 @@ packages:
   '@eslint/plugin-kit@0.2.4':
     resolution: {integrity: sha1-K3jnuzdVeEuxP6qJMqHZlNZTd5I=}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@floating-ui/core@1.6.8':
+    resolution: {integrity: sha1-qkNWG+B1gVh5MFllAg9JLNtD2hI=}
+
+  '@floating-ui/dom@1.6.12':
+    resolution: {integrity: sha1-YzPctajq07K/gvM9a8QQ6V9U5VY=}
+
+  '@floating-ui/react-dom@2.1.2':
+    resolution: {integrity: sha1-oTSbv2oOXLXe1V0CN2byCk1DmjE=}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+
+  '@floating-ui/react@0.26.28':
+    resolution: {integrity: sha1-k/ROuusCQJMS6d+VB+g6q0qMDcc=}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+
+  '@floating-ui/utils@0.2.8':
+    resolution: {integrity: sha1-IakHaEcju7ql8JdM93ML15frjmI=}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha1-F8Vcp9Qmcz/jxWGQa4Fzwza0Cnc=}
@@ -230,6 +258,18 @@ packages:
     resolution: {integrity: sha1-s3Znt7wYHBaHgiWbq0JHT79StVA=}
     engines: {node: '>=12'}
 
+  '@itwin/itwinui-illustrations-react@2.1.0':
+    resolution: {integrity: sha1-RN3/cdzYQxfNLLxS9BOg7+hzznk=}
+    peerDependencies:
+      react: '>=16.8.6'
+      react-dom: '>=16.8.6'
+
+  '@itwin/itwinui-react@3.16.0':
+    resolution: {integrity: sha1-oryckVcL2OkUv7xPWWfESgVnwWE=}
+    peerDependencies:
+      react: '>= 17.0.0 < 19.0.0'
+      react-dom: '>=17.0.0 < 19.0.0'
+
   '@jridgewell/gen-mapping@0.3.8':
     resolution: {integrity: sha1-Tw4GNi4BNi+CPTSPGHKwj2ZtgUI=}
     engines: {node: '>=6.0.0'}
@@ -337,6 +377,15 @@ packages:
 
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha1-ee+rNExYGez4OkPz+fgR/IS1Ftc=}
+
+  '@tanstack/react-virtual@3.11.1':
+    resolution: {integrity: sha1-cIpeJwQfhnj3i5Yig3b3o1tqKfo=}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  '@tanstack/virtual-core@3.10.9':
+    resolution: {integrity: sha1-VXEMkrMR/aqNjGZoKg291oS8d8Q=}
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha1-Yo7/7q4gZKG055946B2Ht+X8e1A=}
@@ -550,6 +599,9 @@ packages:
     resolution: {integrity: sha1-GXxsxmnvKo3F57TZfuTgksPrDVs=}
     engines: {node: '>= 8.10.0'}
 
+  classnames@2.5.1:
+    resolution: {integrity: sha1-undMYUvg8BbaEFyFjnFZ6ujnaHs=}
+
   client-only@0.0.1:
     resolution: {integrity: sha1-OLul1APEGrFQv/ZKlchQE89zvKE=}
 
@@ -642,6 +694,9 @@ packages:
   doctrine@2.1.0:
     resolution: {integrity: sha1-XNAfwQFiG0LEzX9dGmYkNxbT850=}
     engines: {node: '>=0.10.0'}
+
+  dom-helpers@5.2.1:
+    resolution: {integrity: sha1-2UAFNrK/giWtmP4FLgKUUaxA6QI=}
 
   dunder-proto@1.0.0:
     resolution: {integrity: sha1-wvzgmLPI+ImVVJBfQ3e22F2rqoA=}
@@ -1086,6 +1141,18 @@ packages:
     resolution: {integrity: sha1-bH9zmN1LMUJ2f5oWivLzF6Qo0mg=}
     hasBin: true
 
+  jotai@2.10.3:
+    resolution: {integrity: sha1-Wpu+/eBv6l5O7UZ3wrDfarfEm08=}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=17.0.0'
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react:
+        optional: true
+
   js-tokens@4.0.0:
     resolution: {integrity: sha1-GSA/tZmR35jjoocFDUZHzerzJJk=}
 
@@ -1366,6 +1433,17 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=}
 
+  react-table@7.8.0:
+    resolution: {integrity: sha1-B4WMAcFxjAn38a7XA0/P172pB9I=}
+    peerDependencies:
+      react: ^16.8.3 || ^17.0.0-0 || ^18.0.0
+
+  react-transition-group@4.4.5:
+    resolution: {integrity: sha1-5T1OPzNE2oUhSJ+++PJYHUK+zdE=}
+    peerDependencies:
+      react: '>=16.6.0'
+      react-dom: '>=16.6.0'
+
   react@19.0.0:
     resolution: {integrity: sha1-bhlpJRufEIhwqkv/N6DOnd+qq90=}
     engines: {node: '>=0.10.0'}
@@ -1380,6 +1458,9 @@ packages:
   reflect.getprototypeof@1.0.8:
     resolution: {integrity: sha1-xYr7F6QAe00RGMB7ksI/ykIsXYI=}
     engines: {node: '>= 0.4'}
+
+  regenerator-runtime@0.14.1:
+    resolution: {integrity: sha1-NWreECY/aF3aElEAzYYsHbiVMn8=}
 
   regexp.prototype.flags@1.5.3:
     resolution: {integrity: sha1-s65AsdJJm4NQqyw/5u84RdOpb0I=}
@@ -1554,6 +1635,9 @@ packages:
     resolution: {integrity: sha1-btpL00SjyUrqN21MwxvHcxEDngk=}
     engines: {node: '>= 0.4'}
 
+  tabbable@6.2.0:
+    resolution: {integrity: sha1-cy+2K8AXXPzsJXMwvhh9z7ofO5c=}
+
   tailwindcss@3.4.16:
     resolution: {integrity: sha1-NafDAwhE1gAPwnGHjbQJa2qNLsk=}
     engines: {node: '>=14.0.0'}
@@ -1672,6 +1756,10 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
+  '@babel/runtime@7.26.0':
+    dependencies:
+      regenerator-runtime: 0.14.1
+
   '@emnapi/runtime@1.3.1':
     dependencies:
       tslib: 2.8.1
@@ -1717,6 +1805,31 @@ snapshots:
   '@eslint/plugin-kit@0.2.4':
     dependencies:
       levn: 0.4.1
+
+  '@floating-ui/core@1.6.8':
+    dependencies:
+      '@floating-ui/utils': 0.2.8
+
+  '@floating-ui/dom@1.6.12':
+    dependencies:
+      '@floating-ui/core': 1.6.8
+      '@floating-ui/utils': 0.2.8
+
+  '@floating-ui/react-dom@2.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@floating-ui/dom': 1.6.12
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
+  '@floating-ui/react@0.26.28(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@floating-ui/react-dom': 2.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@floating-ui/utils': 0.2.8
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      tabbable: 6.2.0
+
+  '@floating-ui/utils@0.2.8': {}
 
   '@humanfs/core@0.19.1': {}
 
@@ -1815,6 +1928,26 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
+  '@itwin/itwinui-illustrations-react@2.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
+  '@itwin/itwinui-react@3.16.0(@types/react@19.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@floating-ui/react': 0.26.28(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@itwin/itwinui-illustrations-react': 2.1.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@swc/helpers': 0.5.15
+      '@tanstack/react-virtual': 3.11.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      classnames: 2.5.1
+      jotai: 2.10.3(@types/react@19.0.1)(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      react-table: 7.8.0(react@19.0.0)
+      react-transition-group: 4.4.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+    transitivePeerDependencies:
+      - '@types/react'
+
   '@jridgewell/gen-mapping@0.3.8':
     dependencies:
       '@jridgewell/set-array': 1.2.1
@@ -1888,6 +2021,14 @@ snapshots:
   '@swc/helpers@0.5.15':
     dependencies:
       tslib: 2.8.1
+
+  '@tanstack/react-virtual@3.11.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@tanstack/virtual-core': 3.10.9
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
+  '@tanstack/virtual-core@3.10.9': {}
 
   '@types/estree@1.0.6': {}
 
@@ -2156,6 +2297,8 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
+  classnames@2.5.1: {}
+
   client-only@0.0.1: {}
 
   color-convert@2.0.1:
@@ -2242,6 +2385,11 @@ snapshots:
   doctrine@2.1.0:
     dependencies:
       esutils: 2.0.3
+
+  dom-helpers@5.2.1:
+    dependencies:
+      '@babel/runtime': 7.26.0
+      csstype: 3.1.3
 
   dunder-proto@1.0.0:
     dependencies:
@@ -2842,6 +2990,11 @@ snapshots:
 
   jiti@1.21.6: {}
 
+  jotai@2.10.3(@types/react@19.0.1)(react@19.0.0):
+    optionalDependencies:
+      '@types/react': 19.0.1
+      react: 19.0.0
+
   js-tokens@4.0.0: {}
 
   js-yaml@4.1.0:
@@ -3102,6 +3255,19 @@ snapshots:
 
   react-is@16.13.1: {}
 
+  react-table@7.8.0(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+
+  react-transition-group@4.4.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      '@babel/runtime': 7.26.0
+      dom-helpers: 5.2.1
+      loose-envify: 1.4.0
+      prop-types: 15.8.1
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
   react@19.0.0: {}
 
   read-cache@1.0.0:
@@ -3122,6 +3288,8 @@ snapshots:
       get-intrinsic: 1.2.6
       gopd: 1.2.0
       which-builtin-type: 1.2.1
+
+  regenerator-runtime@0.14.1: {}
 
   regexp.prototype.flags@1.5.3:
     dependencies:
@@ -3355,6 +3523,8 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  tabbable@6.2.0: {}
 
   tailwindcss@3.4.16:
     dependencies:
