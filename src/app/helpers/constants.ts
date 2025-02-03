@@ -11,6 +11,7 @@ export const genrePrompts = [
   "Thriller/Suspense",
   "Dark academia",
   "Romantasy", //cspell:ignore Romantasy
+  "Slice of Life",
 ];
 
 export const perspectivePrompts = [
